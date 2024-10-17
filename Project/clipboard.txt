@@ -1,0 +1,25 @@
+Clipboard Data: 
+try:
+        with open(attachment, 'rb') as attach_file:
+            p = MIMEBase('application', 'octet-stream')
+            p.set_payload(attach_file.read())
+            encoders.encode_base64(p)
+            p.add_header('Content-Disposition', f"attachment; filename= {filename}")
+            msg.attach(p)
+
+        with smtplib.SMTP('smtp.gmail.com', 587) as s:
+            s.starttls()
+            s.login(fromaddr, password)
+            s.sendmail(fromaddr, toaddr, msg.as_string())Clipboard Data: 
+try:
+        with open(attachment, 'rb') as attach_file:
+            p = MIMEBase('application', 'octet-stream')
+            p.set_payload(attach_file.read())
+            encoders.encode_base64(p)
+            p.add_header('Content-Disposition', f"attachment; filename= {filename}")
+            msg.attach(p)
+
+        with smtplib.SMTP('smtp.gmail.com', 587) as s:
+            s.starttls()
+            s.login(fromaddr, password)
+            s.sendmail(fromaddr, toaddr, msg.as_string())
